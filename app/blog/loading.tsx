@@ -1,46 +1,23 @@
-import { Skeleton } from "@/components/ui/skeleton"
-
 export default function Loading() {
+  // Simple, accessible skeleton for the blog list/detail route.
   return (
-    <main className="mx-auto w-full max-w-4xl p-6 md:p-8">
-      <section aria-busy="true" aria-live="polite" className="space-y-8">
-        {/* Page header skeleton */}
-        <div className="space-y-3">
-          <Skeleton className="h-6 w-32" />
-          <Skeleton className="h-10 w-2/3" />
-          <Skeleton className="h-4 w-1/2" />
-        </div>
-
-        {/* Search / filters skeleton */}
-        <div className="flex flex-wrap items-center gap-3">
-          <Skeleton className="h-10 w-64" />
-          <Skeleton className="h-9 w-24" />
-          <Skeleton className="h-9 w-24" />
-          <Skeleton className="h-9 w-24" />
-        </div>
-
-        {/* Posts list skeleton */}
-        <ul className="space-y-6">
-          {Array.from({ length: 5 }).map((_, i) => (
-            <li key={i} className="rounded-lg border border-gray-200 p-5 sm:p-6">
-              <div className="flex flex-col gap-4">
-                <div className="flex flex-wrap items-center gap-3">
-                  <Skeleton className="h-5 w-24" />
-                  <Skeleton className="h-5 w-16" />
-                  <Skeleton className="h-5 w-20" />
-                </div>
-                <Skeleton className="h-7 w-3/4" />
-                <Skeleton className="h-4 w-full" />
-                <Skeleton className="h-4 w-5/6" />
-                <div className="flex items-center gap-3 pt-1">
-                  <Skeleton className="h-9 w-24" />
-                  <Skeleton className="h-9 w-24" />
-                </div>
-              </div>
-            </li>
-          ))}
-        </ul>
-      </section>
-    </main>
+    <div className="mx-auto max-w-5xl px-4 py-10">
+      <div className="mb-8 h-8 w-48 animate-pulse rounded bg-gray-200 dark:bg-gray-800" aria-hidden />
+      <div className="grid gap-6 sm:grid-cols-2">
+        {[...Array(6)].map((_, i) => (
+          <article
+            key={i}
+            className="rounded-lg border border-gray-200 p-4 dark:border-gray-800"
+            aria-busy="true"
+            aria-live="polite"
+          >
+            <div className="mb-4 h-40 w-full animate-pulse rounded bg-gray-200 dark:bg-gray-800" aria-hidden />
+            <div className="mb-2 h-6 w-3/4 animate-pulse rounded bg-gray-200 dark:bg-gray-800" aria-hidden />
+            <div className="mb-1 h-4 w-1/2 animate-pulse rounded bg-gray-200 dark:bg-gray-800" aria-hidden />
+            <div className="h-4 w-2/3 animate-pulse rounded bg-gray-200 dark:bg-gray-800" aria-hidden />
+          </article>
+        ))}
+      </div>
+    </div>
   )
 }
