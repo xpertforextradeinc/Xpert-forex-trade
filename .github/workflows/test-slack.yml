@@ -1,0 +1,19 @@
+name: Test Slack Notification
+
+on:
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  test-slack:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Test Notification to Slack
+        run: |
+          curl -X POST -H 'Content-type: application/json' \
+            --data '{"text":"🔔 Test notification from GitHub Actions!\nRepository: ${{ github.repository }}\nTriggered by: ${{ github.actor }}\nSlack integration is active and working."}' \
+            ${{ secrets.SLACK_WEBHOOK_URL }}
+
+      - name: Confirm Integration
+        run: echo "✅ Slack integration test completed successfully!"
