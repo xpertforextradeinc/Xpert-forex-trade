@@ -9,21 +9,9 @@
    ```
 
 2. **Install Dependencies**  
-   Install the required dependencies using npm or yarn:
+   Install the required dependencies using pnpm:
    ```bash
-   npm install  # or yarn install
-   ```
-
-3. **Build the Project**  
-   Use the following command to build the project:
-   ```bash
-   npm run build
-   ```
-
-4. **Start the Application**  
-   You can start the application with:
-   ```bash
-   npm start  # or yarn start
+   pnpm install
    ```
 
 ## Troubleshooting Guide
