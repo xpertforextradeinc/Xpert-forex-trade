@@ -21,11 +21,11 @@ jobs:
           mkdir -p ~/.ssh
           echo "${{ secrets.HOSTINGER_DEPLOY_KEY }}" | base64 -d > ~/.ssh/deploy_key
           chmod 600 ~/.ssh/deploy_key
-          ssh-keyscan -p 65002 157.173.208.8 >> ~/.ssh/known_hosts 2>/dev/null
+          ssh-keyscan -p 65002 185.126.82.202 >> ~/.ssh/known_hosts 2>/dev/null
 
       - name: Deploy to Hostinger
         run: |
-          ssh -i ~/.ssh/deploy_key -p 65002 u404533250@157.173.208.8 << 'EOF'
+          ssh -i ~/.ssh/deploy_key -p 65002 u404533250@185.126.82.202 << 'EOF'
             set -e
             cd ~/domains/xpertforextrad.eu/public_html
             git pull origin main
